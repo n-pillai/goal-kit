@@ -1,0 +1,14 @@
+# Goal loop runtime files (project-specific; don't version these in the kit itself)
+.goal-runs/
+.goal-last-run.json
+goal-archive/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS
+.DS_Store
+Thumbs.db
