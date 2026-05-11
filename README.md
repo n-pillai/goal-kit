@@ -60,7 +60,43 @@ __pycache__/
 > into your project, rename it: `mv dotclaude .claude` (or
 > `Rename-Item dotclaude .claude` on Windows).
 
-## Install into a project
+## Install as a Claude Code plugin (recommended)
+
+This repo is also its own [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugins).
+Two slash commands install the goal-kit plugin into your Claude Code config:
+
+```
+/plugin marketplace add voitta-ai/goal-kit
+/plugin install goal-kit@goal-kit
+```
+
+The plugin registers the five `/goal*` slash commands and the `SessionStart`
+hook automatically. There is no `dotclaude/` rename to do and no
+`settings.json` edit to make. Uninstall with
+`/plugin uninstall goal-kit@goal-kit`.
+
+You still need to drop `GOAL.md` (the template at the repo root of this kit)
+into your project root, and you still need to schedule
+`scripts/run_goal_step.py` if you want the autonomous loop — those live
+outside the plugin because they belong to your project, not to Claude Code's
+config.
+
+### Updating
+
+```
+/plugin marketplace update goal-kit
+```
+
+Then either `/reload-plugins` or restart Claude Code so the running session
+picks up the new code. (Some Claude Code versions don't have a
+`/plugin update` subcommand — `marketplace update` + reload is the
+reliable path.)
+
+## Manual install into a project (legacy)
+
+Use this path only if you can't use the plugin system (older Claude Code,
+sandboxed environments, or you want the files under version control in
+your target repo):
 
 1. Copy `GOAL.md` and `dotclaude/` to your project root.
 2. Rename `dotclaude/` to `.claude/`.
