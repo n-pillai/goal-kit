@@ -60,13 +60,19 @@ __pycache__/
 > into your project, rename it: `mv dotclaude .claude` (or
 > `Rename-Item dotclaude .claude` on Windows).
 
-## Install as a Claude Code plugin (recommended)
+## Install
 
-This repo is also its own [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugins).
+Two install paths are supported. Pick whichever fits your setup; both produce
+the same five `/goal*` slash commands and the same `SessionStart` hook
+behavior.
+
+### Option A — Install via plugin marketplace
+
+This repo is its own [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugins).
 Two slash commands install the goal-kit plugin into your Claude Code config:
 
 ```
-/plugin marketplace add voitta-ai/goal-kit
+/plugin marketplace add n-pillai/goal-kit
 /plugin install goal-kit@goal-kit
 ```
 
@@ -81,22 +87,16 @@ into your project root, and you still need to schedule
 outside the plugin because they belong to your project, not to Claude Code's
 config.
 
-### Updating
+To update, run `/plugin marketplace update goal-kit`, then either
+`/reload-plugins` or restart Claude Code so the running session picks up the
+new code. (Some Claude Code versions don't have a `/plugin update`
+subcommand — `marketplace update` + reload is the reliable path.)
 
-```
-/plugin marketplace update goal-kit
-```
+### Option B — Manual install into a project
 
-Then either `/reload-plugins` or restart Claude Code so the running session
-picks up the new code. (Some Claude Code versions don't have a
-`/plugin update` subcommand — `marketplace update` + reload is the
-reliable path.)
-
-## Manual install into a project (legacy)
-
-Use this path only if you can't use the plugin system (older Claude Code,
-sandboxed environments, or you want the files under version control in
-your target repo):
+Use this path if you prefer the kit's files under version control in your
+target repo, or if your Claude Code version / sandboxed environment doesn't
+support the plugin system:
 
 1. Copy `GOAL.md` and `dotclaude/` to your project root.
 2. Rename `dotclaude/` to `.claude/`.

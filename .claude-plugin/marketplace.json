@@ -1,7 +1,7 @@
 {
   "name": "goal-kit",
   "owner": {
-    "name": "voitta-ai"
+    "name": "n-pillai"
   },
   "description": "goal-kit - durable long-horizon objectives for Claude Code via /goal slash commands and a SessionStart hook.",
   "plugins": [
