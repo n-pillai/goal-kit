@@ -3,9 +3,9 @@
   "description": "Durable long-horizon objectives for Claude Code. Provides /goal, /goal-status, /goal-pause, /goal-resume, /goal-clear slash commands and a SessionStart hook that auto-loads GOAL.md when its status is active.",
   "version": "0.1.0",
   "author": {
-    "name": "voitta-ai"
+    "name": "n-pillai"
   },
-  "homepage": "https://github.com/voitta-ai/goal-kit",
-  "repository": "https://github.com/voitta-ai/goal-kit",
+  "homepage": "https://github.com/n-pillai/goal-kit",
+  "repository": "https://github.com/n-pillai/goal-kit",
   "license": "MIT"
 }
