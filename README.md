@@ -60,7 +60,43 @@ __pycache__/
 > into your project, rename it: `mv dotclaude .claude` (or
 > `Rename-Item dotclaude .claude` on Windows).
 
-## Install into a project
+## Install
+
+Two install paths are supported. Pick whichever fits your setup; both produce
+the same five `/goal*` slash commands and the same `SessionStart` hook
+behavior.
+
+### Option A — Install via plugin marketplace
+
+This repo is its own [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugins).
+Two slash commands install the goal-kit plugin into your Claude Code config:
+
+```
+/plugin marketplace add n-pillai/goal-kit
+/plugin install goal-kit@goal-kit
+```
+
+The plugin registers the five `/goal*` slash commands and the `SessionStart`
+hook automatically. There is no `dotclaude/` rename to do and no
+`settings.json` edit to make. Uninstall with
+`/plugin uninstall goal-kit@goal-kit`.
+
+You still need to drop `GOAL.md` (the template at the repo root of this kit)
+into your project root, and you still need to schedule
+`scripts/run_goal_step.py` if you want the autonomous loop — those live
+outside the plugin because they belong to your project, not to Claude Code's
+config.
+
+To update, run `/plugin marketplace update goal-kit`, then either
+`/reload-plugins` or restart Claude Code so the running session picks up the
+new code. (Some Claude Code versions don't have a `/plugin update`
+subcommand — `marketplace update` + reload is the reliable path.)
+
+### Option B — Manual install into a project
+
+Use this path if you prefer the kit's files under version control in your
+target repo, or if your Claude Code version / sandboxed environment doesn't
+support the plugin system:
 
 1. Copy `GOAL.md` and `dotclaude/` to your project root.
 2. Rename `dotclaude/` to `.claude/`.

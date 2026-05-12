@@ -1,0 +1,14 @@
+{
+  "name": "goal-kit",
+  "owner": {
+    "name": "n-pillai"
+  },
+  "description": "goal-kit - durable long-horizon objectives for Claude Code via /goal slash commands and a SessionStart hook.",
+  "plugins": [
+    {
+      "name": "goal-kit",
+      "source": "./dotclaude",
+      "description": "Five /goal* slash commands (set / status / pause / resume / clear) plus a SessionStart hook that auto-loads GOAL.md when its status is active."
+    }
+  ]
+}
