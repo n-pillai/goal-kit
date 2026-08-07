@@ -10,10 +10,17 @@ goal context, and a continuation loop.
 ```
 goal-kit/
 ├── README.md                  ← you are here
+├── LICENSE                    ← MIT
 ├── GOAL.md                    ← the goal template (copy to your repo root)
+├── goal-kit-carousel.pdf      ← LinkedIn carousel about this kit (marketing, not needed to use it)
+├── .claude-plugin/
+│   └── marketplace.json       ← makes this repo installable as a plugin marketplace (Option A)
 ├── dotclaude/                 ← rename to ".claude/" after copying into a project
 │   ├── settings.json          ← wires up the SessionStart hook
+│   ├── .claude-plugin/
+│   │   └── plugin.json        ← plugin manifest (Option A)
 │   ├── hooks/
+│   │   ├── hooks.json         ← hook wiring for the plugin install path
 │   │   ├── load_goal.py       ← portable Python hook (default)
 │   │   └── load_goal.sh       ← bash alternative
 │   └── commands/
@@ -127,9 +134,17 @@ no-ops when the goal is missing or not `active`. Example crontab:
 */15 * * * * cd /path/to/your/project && python /path/to/goal-kit/scripts/run_goal_step.py
 ```
 
-For Cowork, ask me: "set up a scheduled task to run goal-step every 15 min in
-<project>" and I'll create one with the `mcp__scheduled-tasks__create_scheduled_task`
-tool.
+> ⚠️ **Permission model:** the loop runner invokes
+> `claude -p ... --permission-mode bypassPermissions` — each unattended
+> iteration has full tool access with no per-action prompts. That is the point
+> of an autonomous loop, but know it before you schedule one: scope the goal
+> tightly, use the `## Budget` caps, and if you want a tighter leash, edit
+> `run_goal_step.py` to pass an `--allowed-tools` list instead (the script's
+> comments show how).
+
+For Cowork, ask Claude: "set up a scheduled task to run goal-step every 15 min
+in <project>" and it will create one with the
+`mcp__scheduled-tasks__create_scheduled_task` tool.
 
 **Option B — Agent SDK harness (graduate when needed).** See `sdk-harness/`.
 Use this when you want sub-15-minute iteration cadence, hard token budgets,
