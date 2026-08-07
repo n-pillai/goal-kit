@@ -174,3 +174,7 @@ self-flip Status to `done` when approaching a cap. No separate state file
 `max_iterations` (or the `GOAL_MAX_ITERATIONS` env var as a fallback) to
 avoid taking on a `jq`-or-Python dependency for budget math; for full
 budget control use `run_goal_step.py`.
+
+## License
+
+[MIT](LICENSE).
