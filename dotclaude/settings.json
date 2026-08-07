@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/load_goal.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/load_goal.py\" || python \"$CLAUDE_PROJECT_DIR/.claude/hooks/load_goal.py\""
           }
         ]
       }
