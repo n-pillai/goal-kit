@@ -1,5 +1,7 @@
 # goal-kit — a `/goal` for Claude Code & Cowork
 
+_Note: this predates claude's built-in /goal command_
+
 A portable starter kit that gives Claude Code (and Cowork) the same long-horizon
 behavior as Codex CLI's `/goal`: a durable objective that survives session breaks,
 five lifecycle commands (set / status / pause / resume / clear), an auto-loaded
